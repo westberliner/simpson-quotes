@@ -30,8 +30,8 @@
   - symfony server:start
 
 ## How to test
+  -  before run: bin/console doctrine:migrations:migrate --env=test -q
   -  composer test
-  -  cleanup: composer cleanup
 
 
 
