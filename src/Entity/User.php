@@ -113,8 +113,12 @@ class User
         return $this->quotations;
     }
 
-    public function addQuotation(Quotation $quotation): self
+    public function addQuotation(Quotation|string $quotation): self
     {
+        if (is_string($quotation)) {
+            $quotation = new Quotation(($quotation));
+        }
+
         if (!$this->quotations->contains($quotation)) {
             $this->quotations[] = $quotation;
             $quotation->setUserId($this);
